@@ -1,0 +1,61 @@
+/*
+  Design tokens — single source of truth for spacing, type, and color.
+  Values below are placeholders. Replace with the real Figma values;
+  nothing else in the codebase should need to change.
+*/
+
+:root {
+  /* ---- Color -------------------------------------------------------- */
+  --color-paper: #faf9f6;        /* page background */
+  --color-paper-raised: #f2f0ea; /* subtle section backgrounds (org strip, cards) */
+  --color-ink: #16150f;          /* primary text */
+  --color-ink-soft: #46443d;     /* secondary text on paper */
+  --color-muted: #7a776d;        /* tertiary / meta text */
+  --color-border: #ddd9cd;       /* hairlines, dividers */
+  --color-accent: #7a2e25;       /* single accent — links, CTA, emphasis marks */
+  --color-accent-ink: #faf9f6;   /* text on top of accent */
+
+  /* ---- Type ----------------------------------------------------------
+     Two font families, three sizes doing real work. Display is editorial
+     serif for headlines; body/meta are a plain sans for legibility. */
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --text-display: clamp(2.25rem, 1.4rem + 3.5vw, 4.25rem);
+  --text-body: 1.125rem;   /* 18px */
+  --text-meta: 0.8125rem;  /* 13px, used with letter-spacing + uppercase */
+
+  --leading-display: 1.08;
+  --leading-body: 1.6;
+  --leading-meta: 1.4;
+
+  --tracking-meta: 0.08em;
+
+  /* ---- Space -----------------------------------------------------------
+     One scale, 8px base. Use these everywhere instead of ad-hoc values. */
+  --space-1: 0.25rem;  /* 4  */
+  --space-2: 0.5rem;   /* 8  */
+  --space-3: 0.75rem;  /* 12 */
+  --space-4: 1rem;     /* 16 */
+  --space-5: 1.5rem;   /* 24 */
+  --space-6: 2.5rem;   /* 40 */
+  --space-7: 4rem;     /* 64 */
+  --space-8: 6rem;     /* 96 */
+  --space-9: 9rem;     /* 144 — large section breaks */
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --measure: 34rem;        /* comfortable reading line length */
+  --container-max: 72rem;  /* outer page container */
+  --container-pad: var(--space-5);
+
+  /* ---- Motion hooks (values only — no animation implemented yet) ------ */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+}
+
+@media (min-width: 60rem) {
+  :root {
+    --container-pad: var(--space-7);
+  }
+}

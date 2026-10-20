@@ -1,0 +1,153 @@
+/* Page chrome: container, header/nav, footer, section rhythm. */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+/* ---- Section rhythm ----------------------------------------------------
+   Use data-section on every top-level <section> so vertical spacing stays
+   consistent without re-declaring margins per page. */
+[data-section] {
+  padding-block: var(--space-8);
+}
+
+[data-section="compact"] {
+  padding-block: var(--space-6);
+}
+
+[data-section]:first-of-type {
+  padding-top: var(--space-7);
+}
+
+/* ---- Site header / nav -------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-4);
+}
+
+.site-header__mark {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.site-nav__toggle {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--space-2);
+}
+
+.site-nav__toggle-bar {
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+}
+
+.site-nav__list {
+  display: none;
+}
+
+.site-nav__list a {
+  text-decoration: none;
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+}
+
+.site-nav__list a[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+.site-nav[data-open="true"] .site-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  background: var(--color-paper);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-6) var(--container-pad);
+}
+
+@media (min-width: 48rem) {
+  .site-nav__toggle {
+    display: none;
+  }
+
+  .site-nav__list {
+    display: flex;
+    gap: var(--space-6);
+    position: static;
+    border: 0;
+    padding: 0;
+    background: none;
+  }
+}
+
+/* ---- Site footer ---------------------------------------------------- */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-7);
+}
+
+.site-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.site-footer__links a {
+  text-decoration: none;
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.site-footer__meta {
+  font-size: var(--text-meta);
+  color: var(--color-muted);
+}
+
+/* ---- Generic grid helpers -------------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 48rem) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

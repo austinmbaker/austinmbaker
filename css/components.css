@@ -1,0 +1,367 @@
+/* Reusable page components. Each block owns one job. */
+
+/* ---- Eyebrow / meta labels -------------------------------------------- */
+.eyebrow {
+  display: block;
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* ---- Buttons / links --------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-ink);
+  padding-bottom: var(--space-1);
+}
+
+.btn--accent {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.link-arrow::after {
+  content: "→";
+  display: inline-block;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.link-arrow:hover::after,
+.link-arrow:focus-visible::after {
+  transform: translateX(3px);
+}
+
+/* ---- Hero (Home) -------------------------------------------------------- */
+.hero {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.hero__headline {
+  font-size: var(--text-display);
+}
+
+.hero__headline em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.hero__standfirst {
+  font-size: 1.1875rem;
+  color: var(--color-ink-soft);
+  max-width: var(--measure);
+}
+
+/* ---- Signals (writing) list --------------------------------------------- */
+.signals-intro {
+  max-width: var(--measure);
+}
+
+.signal-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.signal-item {
+  display: grid;
+  gap: var(--space-2) var(--space-6);
+  grid-template-columns: 1fr;
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 48rem) {
+  .signal-item {
+    grid-template-columns: 8rem 1fr auto;
+    align-items: baseline;
+  }
+}
+
+.signal-item__date {
+  font-size: var(--text-meta);
+  color: var(--color-muted);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+}
+
+.signal-item__title {
+  font-size: 1.375rem;
+}
+
+.signal-item__title a {
+  text-decoration: none;
+}
+
+.signal-item__title a:hover,
+.signal-item__title a:focus-visible {
+  color: var(--color-accent);
+}
+
+.signal-item__dek {
+  color: var(--color-ink-soft);
+  max-width: var(--measure);
+  margin-top: var(--space-2);
+}
+
+.newsletter-callout {
+  border: 1px solid var(--color-border);
+  background: var(--color-paper-raised);
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-3);
+}
+
+/* ---- Home: Work block (not a grid) --------------------------------- */
+.org-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6) var(--space-7);
+  align-items: center;
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.org-strip__item {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+.work-teaser__frame {
+  margin-top: var(--space-6);
+  font-size: 1.1875rem;
+  max-width: var(--measure);
+  color: var(--color-ink-soft);
+}
+
+/* ---- Work index: case study rows (decision-first, not visual) ------- */
+.case-row-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.case-row {
+  display: grid;
+  gap: var(--space-4);
+  padding-block: var(--space-7);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 60rem) {
+  .case-row {
+    grid-template-columns: 2fr 3fr;
+    gap: var(--space-7);
+  }
+}
+
+.case-row__org {
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-row__title {
+  font-size: 1.75rem;
+  margin-top: var(--space-2);
+}
+
+.case-row__title a {
+  text-decoration: none;
+}
+
+.case-row__title a:hover,
+.case-row__title a:focus-visible {
+  color: var(--color-accent);
+}
+
+.case-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5) var(--space-6);
+  margin-top: var(--space-5);
+}
+
+.case-row__meta dt {
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-row__meta dd {
+  margin-top: var(--space-1);
+  max-width: 20rem;
+}
+
+.other-work-grid {
+  margin-top: var(--space-7);
+}
+
+.other-work-grid__item {
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+/* ---- Case study template ------------------------------------------- */
+.case-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+}
+
+.case-hero__meta dt {
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.case-hero__meta dd {
+  margin-top: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+}
+
+.case-section__heading {
+  font-size: var(--text-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: var(--space-5);
+}
+
+.case-reframe {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.case-reframe__statement {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  max-width: var(--measure);
+}
+
+.outcomes-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 48rem) {
+  .outcomes-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.outcome {
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}
+
+.outcome__value {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-accent);
+}
+
+.outcome__label {
+  margin-top: var(--space-2);
+  font-size: var(--text-meta);
+  color: var(--color-muted);
+}
+
+.case-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-5);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-6);
+}
+
+.case-nav__link {
+  text-decoration: none;
+  max-width: 20rem;
+}
+
+.case-nav__link--next {
+  text-align: right;
+  margin-left: auto;
+}
+
+/* ---- About ------------------------------------------------------------ */
+.beliefs {
+  counter-reset: belief;
+}
+
+.belief {
+  counter-increment: belief;
+  border-top: 1px solid var(--color-border);
+  padding-block: var(--space-6);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.belief::before {
+  content: counter(belief, decimal-leading-zero);
+  font-family: var(--font-display);
+  color: var(--color-muted);
+  font-size: var(--text-meta);
+}
+
+.belief__statement {
+  font-size: 1.375rem;
+  max-width: var(--measure);
+}
+
+.credentials-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.credentials-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---- Connect ------------------------------------------------------- */
+.connect-links {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.connect-links a {
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---- Animation hooks (no animation implemented yet) --------------------
+   Elements carrying data-animate start hidden-by-intent via this class;
+   main.js toggles data-inview="true" on scroll into view. Until a real
+   transition is designed, this is a no-op visual passthrough so content
+   is never hidden without JS. */
+[data-animate] {
+  opacity: 1;
+}
