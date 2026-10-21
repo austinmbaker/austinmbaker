@@ -32,8 +32,9 @@ function initNavToggle() {
 function markActiveNavLink() {
   const current = document.body.getAttribute("data-page");
   if (!current) return;
-  const link = document.querySelector(`[data-nav-link="${current}"]`);
-  if (link) link.setAttribute("aria-current", "page");
+  document
+    .querySelectorAll(`[data-nav-link="${current}"]`)
+    .forEach((link) => link.setAttribute("aria-current", "page"));
 }
 
 function setFooterYear() {

@@ -1,61 +1,119 @@
 /*
-  Design tokens — single source of truth for spacing, type, and color.
-  Values below are placeholders. Replace with the real Figma values;
-  nothing else in the codebase should need to change.
+  Design tokens — single source of truth. Values come from the Figma
+  "Final Designs" page (file ABGUVLX1P87DNDHjiBb8yp), consolidated: near-
+  duplicate sizes, grays, and spacing values were collapsed to one value
+  each. Desktop sizes match Figma at 1440px; fluid values scale down to a
+  375px viewport.
 */
 
 :root {
-  /* ---- Color -------------------------------------------------------- */
-  --color-paper: #faf9f6;        /* page background */
-  --color-paper-raised: #f2f0ea; /* subtle section backgrounds (org strip, cards) */
-  --color-ink: #16150f;          /* primary text */
-  --color-ink-soft: #46443d;     /* secondary text on paper */
-  --color-muted: #7a776d;        /* tertiary / meta text */
-  --color-border: #ddd9cd;       /* hairlines, dividers */
-  --color-accent: #7a2e25;       /* single accent — links, CTA, emphasis marks */
-  --color-accent-ink: #faf9f6;   /* text on top of accent */
+  /* ---- Color ---------------------------------------------------------- */
+  --color-paper: #fafaf8;         /* page background */
+  --color-paper-raised: #f5f3f0;  /* subtle section / panel background */
+  --color-surface: #ffffff;       /* cards, secondary buttons */
+  --color-ink: #1a1a1a;           /* headings, primary text */
+  --color-ink-soft: #55514d;      /* body copy (was #55514d / #6e6a66) */
+  --color-muted: #6e6a66;         /* meta, captions, inactive nav (was 5 grays) */
+  --color-border: #e8e5e1;        /* hairlines, dividers, card borders */
+  --color-accent: #e05a33;        /* fills, rules, markers, large accent text */
+  --color-accent-tint: #fdf1ec;   /* tag and highlight backgrounds */
+  --color-accent-text: #b8441f;   /* accent text under 24px — #e05a33 fails AA at small sizes */
+  --color-on-accent: #ffffff;
 
-  /* ---- Type ----------------------------------------------------------
-     Two font families, three sizes doing real work. Display is editorial
-     serif for headlines; body/meta are a plain sans for legibility. */
-  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* ---- Font families --------------------------------------------------- */
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --text-display: clamp(2.25rem, 1.4rem + 3.5vw, 4.25rem);
-  --text-body: 1.125rem;   /* 18px */
-  --text-meta: 0.8125rem;  /* 13px, used with letter-spacing + uppercase */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
 
-  --leading-display: 1.08;
+  /* ---- Type roles ------------------------------------------------------
+     Each role: size / leading / tracking. Applied via typography.css. */
+
+  /* Outfit */
+  --text-display-1: clamp(2.75rem, 1.429rem + 5.634vw, 6.5rem); /* 44 → 104 */
+  --leading-display-1: 1.04;
+  --tracking-display-1: -0.035em;
+
+  --text-display-2: clamp(2.5rem, 1.972rem + 2.254vw, 4rem); /* 40 → 64 */
+  --leading-display-2: 1.08;
+  --tracking-display-2: -0.02em;
+
+  --text-heading-1: clamp(2rem, 1.736rem + 1.127vw, 2.75rem); /* 32 → 44 */
+  --leading-heading-1: 1.12;
+  --tracking-heading-1: -0.018em;
+
+  --text-quote: clamp(1.5rem, 1.324rem + 0.751vw, 2rem); /* 24 → 32 */
+  --leading-quote: 1.25;
+  --tracking-quote: -0.005em;
+
+  --text-heading-2: clamp(1.375rem, 1.243rem + 0.563vw, 1.75rem); /* 22 → 28 */
+  --leading-heading-2: 1.2;
+  --tracking-heading-2: -0.01em;
+
+  --text-heading-3: clamp(1.25rem, 1.162rem + 0.376vw, 1.5rem); /* 20 → 24 */
+  --leading-heading-3: 1.25;
+  --tracking-heading-3: -0.005em;
+
+  --text-heading-4: 1.125rem; /* 18 */
+  --leading-heading-4: 1.35;
+
+  /* Instrument Sans */
+  --text-lede: clamp(1.1875rem, 1.121rem + 0.282vw, 1.375rem); /* 19 → 22 */
+  --leading-lede: 1.55;
+
+  --text-body-lg: 1.125rem; /* 18 */
+  --leading-body-lg: 1.65;
+
+  --text-body: 1rem; /* 16 */
   --leading-body: 1.6;
-  --leading-meta: 1.4;
 
-  --tracking-meta: 0.08em;
+  --text-body-sm: 0.875rem; /* 14 */
+  --leading-body-sm: 1.55;
 
-  /* ---- Space -----------------------------------------------------------
-     One scale, 8px base. Use these everywhere instead of ad-hoc values. */
-  --space-1: 0.25rem;  /* 4  */
-  --space-2: 0.5rem;   /* 8  */
-  --space-3: 0.75rem;  /* 12 */
-  --space-4: 1rem;     /* 16 */
-  --space-5: 1.5rem;   /* 24 */
-  --space-6: 2.5rem;   /* 40 */
-  --space-7: 4rem;     /* 64 */
-  --space-8: 6rem;     /* 96 */
-  --space-9: 9rem;     /* 144 — large section breaks */
+  --text-label: 0.875rem; /* 14 — buttons, text links, section labels */
+  --text-caption: 0.75rem; /* 12 — captions, eyebrows, footer */
+  --text-meta: 0.6875rem; /* 11 — nav, dates, tags, field labels */
 
-  /* ---- Layout ---------------------------------------------------------- */
-  --measure: 34rem;        /* comfortable reading line length */
-  --container-max: 72rem;  /* outer page container */
-  --container-pad: var(--space-5);
+  --leading-tight: 1.2;
+  --tracking-caps: 0.02em; /* all small uppercase labels */
+  --tracking-nav: 0.08em;
 
-  /* ---- Motion hooks (values only — no animation implemented yet) ------ */
+  /* ---- Space ------------------------------------------------------------
+     Named by pixel value so Figma numbers map 1:1 (gap 24 → --space-24). */
+  --space-4: 0.25rem;
+  --space-8: 0.5rem;
+  --space-12: 0.75rem;
+  --space-16: 1rem;
+  --space-20: 1.25rem;
+  --space-24: 1.5rem;
+  --space-32: 2rem;
+  --space-40: 2.5rem;
+  --space-48: 3rem;
+  --space-56: 3.5rem;
+  --space-64: 4rem;
+  --space-80: 5rem;
+  --space-112: 7rem;
+  --space-128: 8rem;
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --container-max: 90rem; /* 1440, gutters included → 1328 content */
+  --gutter: clamp(1.25rem, 0.458rem + 3.38vw, 3.5rem); /* 20 → 56 */
+  --section-space: clamp(4rem, 2.944rem + 4.507vw, 7rem); /* 64 → 112 */
+  --measure: 42.5rem; /* 680 — body copy line length */
+  --measure-wide: 50rem; /* 800 — ledes, positioning statement */
+  --nav-height: 5.5rem; /* 88 */
+
+  /* ---- Shape ------------------------------------------------------------ */
+  --radius: 0.25rem; /* 4 */
+  --rule: 1px solid var(--color-border);
+
+  /* ---- Motion (values only — animations come later) --------------------- */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --duration-fast: 150ms;
   --duration-base: 300ms;
-}
-
-@media (min-width: 60rem) {
-  :root {
-    --container-pad: var(--space-7);
-  }
+  --duration-slow: 600ms;
 }

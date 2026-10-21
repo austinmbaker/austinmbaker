@@ -1,4 +1,4 @@
-/* Reset + base element styles. Keep opinionated choices in components.css. */
+/* Reset + element defaults. Visual roles live in typography.css. */
 
 *,
 *::before,
@@ -14,11 +14,13 @@ html {
 body {
   margin: 0;
   background: var(--color-paper);
-  color: var(--color-ink);
+  color: var(--color-ink-soft);
   font-family: var(--font-body);
   font-size: var(--text-body);
   line-height: var(--leading-body);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 img,
@@ -39,14 +41,39 @@ dd {
   margin: 0;
 }
 
+/* Headings default to a sensible role by level; add a .type-* class to
+   decouple visual size from document outline. */
 h1,
 h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 400;
-  line-height: var(--leading-display);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
   text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-heading-1);
+  line-height: var(--leading-heading-1);
+  letter-spacing: var(--tracking-heading-1);
+}
+
+h2 {
+  font-size: var(--text-heading-2);
+  line-height: var(--leading-heading-2);
+  letter-spacing: var(--tracking-heading-2);
+}
+
+h3 {
+  font-size: var(--text-heading-3);
+  line-height: var(--leading-heading-3);
+  letter-spacing: var(--tracking-heading-3);
+}
+
+h4 {
+  font-size: var(--text-heading-4);
+  line-height: var(--leading-heading-4);
 }
 
 p {
@@ -73,8 +100,11 @@ button {
   cursor: pointer;
 }
 
-/* Visible, consistent focus state everywhere — do not remove outlines
-   without replacing them. */
+::selection {
+  background: var(--color-accent-tint);
+  color: var(--color-ink);
+}
+
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
@@ -94,21 +124,20 @@ button {
 
 .u-skip-link {
   position: absolute;
-  left: var(--space-4);
-  top: -3rem;
+  left: var(--space-16);
+  top: var(--space-16);
   z-index: 100;
   background: var(--color-ink);
   color: var(--color-paper);
-  padding: var(--space-3) var(--space-4);
-  transition: top var(--duration-fast) var(--ease-standard);
+  padding: var(--space-12) var(--space-16);
+  transform: translateY(calc(-100% - var(--space-32)));
+  transition: transform var(--duration-fast) var(--ease-standard);
 }
 
 .u-skip-link:focus {
-  top: var(--space-4);
+  transform: none;
 }
 
-/* Respect reduced-motion globally; any future animation code should also
-   check this, but this blanket rule is the floor. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
