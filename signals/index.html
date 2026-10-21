@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signals — Austin Baker</title>
+  <meta name="description" content="Austin Baker's writing on the future of human-technology interaction, including the Orbital Dawn newsletter." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/typography.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+</head>
+<body data-page="signals">
+  <a class="u-skip-link" href="#main">Skip to content</a>
+
+  <div data-include="/partials/nav.html"></div>
+
+  <main id="main">
+    <section data-section="compact" aria-labelledby="signals-index-heading" data-animate>
+      <div class="container">
+        <span class="eyebrow">Signals</span>
+        <h1 id="signals-index-heading" class="hero__headline" style="margin-top: var(--space-12);">
+          Notes on where human-technology interaction is headed.
+        </h1>
+        <p class="signals-intro hero__standfirst">
+          [Placeholder intro line — the territory this section covers and how often Austin writes.]
+        </p>
+      </div>
+    </section>
+
+    <section data-section aria-label="Orbital Dawn newsletter" data-animate>
+      <div class="container">
+        <div class="newsletter-callout">
+          <span class="eyebrow">Newsletter</span>
+          <h2 style="font-size: 1.375rem;">Orbital Dawn</h2>
+          <p class="measure">
+            [Placeholder — one or two sentences describing Orbital Dawn and what subscribers get.]
+          </p>
+          <div>
+            <a class="btn btn--accent link-arrow" href="https://orbitaldawn.substack.com/subscribe">Subscribe on Substack</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-section aria-label="All writing" data-animate>
+      <div class="container">
+        <ul class="signal-list" data-signals-feed>
+          <li class="signal-item" data-signals-fallback>
+            <span class="signal-item__date">Orbital Dawn</span>
+            <div>
+              <h2 class="signal-item__title"><a href="https://orbitaldawn.substack.com">Read every issue on Substack</a></h2>
+            </div>
+          </li>
+          <template>
+            <li class="signal-item" data-animate>
+              <time class="signal-item__date" data-field="date"></time>
+              <div>
+                <h2 class="signal-item__title"><a data-field-href data-field="title"></a></h2>
+                <p class="signal-item__dek" data-field="excerpt"></p>
+              </div>
+              <a class="btn link-arrow" data-field-href aria-hidden="true" tabindex="-1">Read</a>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div data-include="/partials/footer.html"></div>
+
+  <script src="/js/include.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/signals.js"></script>
+</body>
+</html>

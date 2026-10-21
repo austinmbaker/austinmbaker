@@ -1,0 +1,198 @@
+/*
+  Type roles. Pick by visual role, independent of heading level — e.g. an
+  <h2> section heading on Home uses .type-heading-1. Each role notes the
+  Figma layers it replaces.
+*/
+
+/* ---- Outfit ------------------------------------------------------------ */
+
+/* Home hero. Figma: "Display 1 · Positioning" (Solarpunk / Display 1). */
+.type-display-1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-display-1);
+  line-height: var(--leading-display-1);
+  letter-spacing: var(--tracking-display-1);
+  color: var(--color-ink);
+}
+
+/* Detail-page titles. Figma: Case title 64, Article title 72. */
+.type-display-2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-display-2);
+  line-height: var(--leading-display-2);
+  letter-spacing: var(--tracking-display-2);
+  color: var(--color-ink);
+}
+
+/* Index-page titles and major section headings. Figma: 36 / 40 / 44 / 48. */
+.type-heading-1 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-heading-1);
+  line-height: var(--leading-heading-1);
+  letter-spacing: var(--tracking-heading-1);
+  color: var(--color-ink);
+}
+
+/* Subsection headings and list-item titles. Figma: 28 / 30. */
+.type-heading-2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-heading-2);
+  line-height: var(--leading-heading-2);
+  letter-spacing: var(--tracking-heading-2);
+  color: var(--color-ink);
+}
+
+/* Card titles, decision choices, condition titles. Figma: 23 / 24 / 25 / 26. */
+.type-heading-3 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-heading-3);
+  line-height: var(--leading-heading-3);
+  letter-spacing: var(--tracking-heading-3);
+  color: var(--color-ink);
+}
+
+/* Small titles: quote cards, beliefs, contact options, wordmark. Figma: 16 / 18 / 20. */
+.type-heading-4 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-heading-4);
+  line-height: var(--leading-heading-4);
+  color: var(--color-ink);
+}
+
+/* Pull quotes. Figma: Outfit Medium 32. */
+.type-quote {
+  font-family: var(--font-display);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-quote);
+  line-height: var(--leading-quote);
+  letter-spacing: var(--tracking-quote);
+  color: var(--color-ink);
+}
+
+/* Section label, paired with .type-section-index. Figma: "Typography Scale" 14 caps. */
+.type-section-label {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-label);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+
+/* ---- Instrument Sans ----------------------------------------------------- */
+
+/* Standfirst / positioning statement. Figma: 22 at 155–160%. */
+.type-lede {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-lede);
+  line-height: var(--leading-lede);
+  color: var(--color-ink-soft);
+}
+
+/* Long-form and intro paragraphs. Figma: 18 at 160–170%. */
+.type-body-lg {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body-lg);
+  color: var(--color-ink-soft);
+}
+
+/* Default paragraph. Figma: 15 / 16 / 17. */
+.type-body {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-ink-soft);
+}
+
+/* Card descriptions, supporting copy. Figma: 14 at 114–162%. */
+.type-body-sm {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body-sm);
+  color: var(--color-ink-soft);
+}
+
+/* Captions, editorial context, footer, author lines. Figma: 11 / 12 / 13 regular. */
+.type-caption {
+  font-family: var(--font-body);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+/* Buttons and text links. Figma: SemiBold 13 / 14. */
+.type-label {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-label);
+  line-height: var(--leading-tight);
+}
+
+/* Page-level marker above a title. Figma: "Work / Decisions made at scale". */
+.type-eyebrow {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-caption);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Section number, e.g. "01". Figma: Instrument Sans Bold 12, accent. */
+.type-section-index {
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-caption);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-caps);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-accent-text);
+}
+
+/* Dates, field labels, table headings, themes. Figma: 11 caps, Regular/Medium. */
+.type-meta {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-meta);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-muted);
+}
+
+/* Category tags and status. Figma: SemiBold 10 / 11 caps, accent. */
+.type-tag {
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-meta);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+}
+
+/* Primary nav links. Figma: six variants across pages → one. */
+.type-nav {
+  font-family: var(--font-body);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-meta);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-nav);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}

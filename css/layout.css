@@ -1,0 +1,166 @@
+/* Page chrome: container, section rhythm, header/nav, footer. */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+.measure-wide {
+  max-width: var(--measure-wide);
+}
+
+/* ---- Section rhythm ------------------------------------------------------
+   data-section on every top-level <section> keeps vertical spacing on one
+   token. Dividers sit inside the gutters, as in Figma. */
+[data-section] {
+  padding-block: var(--section-space);
+}
+
+[data-section="compact"] {
+  padding-block: calc(var(--section-space) * 0.6);
+}
+
+.divider {
+  border: 0;
+  border-top: var(--rule);
+  margin: 0;
+}
+
+/* ---- Site header / nav ---------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-paper);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--nav-height);
+  border-bottom: var(--rule);
+}
+
+.site-header__mark {
+  text-decoration: none;
+}
+
+.site-nav__toggle {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--space-8);
+  margin-right: calc(var(--space-8) * -1);
+}
+
+.site-nav__toggle-bar {
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink);
+}
+
+.site-nav__list {
+  display: none;
+}
+
+.site-nav__list a {
+  position: relative;
+  display: inline-block;
+  padding-block: var(--space-4);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.site-nav__list a:hover,
+.site-nav__list a:focus-visible {
+  color: var(--color-ink);
+}
+
+.site-nav__list a[aria-current="page"] {
+  color: var(--color-ink);
+}
+
+/* Active indicator: 20×2 accent bar centered under the link (Figma 228:2702). */
+.site-nav__list a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 20px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-accent);
+  transform: translateX(-50%);
+}
+
+.site-nav[data-open="true"] .site-nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  background: var(--color-paper);
+  border-bottom: var(--rule);
+  padding: var(--space-32) var(--gutter);
+}
+
+@media (min-width: 48rem) {
+  .site-nav__toggle {
+    display: none;
+  }
+
+  .site-nav__list {
+    display: flex;
+    gap: var(--space-32);
+  }
+}
+
+/* ---- Site footer ------------------------------------------------------ */
+.site-footer__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16) var(--space-32);
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-40);
+  border-top: var(--rule);
+}
+
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+}
+
+.site-footer__links a {
+  text-decoration: none;
+}
+
+.site-footer__links a:hover,
+.site-footer__links a:focus-visible,
+.site-footer__links a[aria-current="page"] {
+  color: var(--color-ink);
+}
+
+/* ---- Grid helpers ------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: var(--space-40);
+}
+
+@media (min-width: 48rem) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
