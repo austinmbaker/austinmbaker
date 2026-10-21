@@ -65,6 +65,11 @@
   max-width: var(--measure);
 }
 
+/* Interior page title → intro: 24px, per the Figma hero auto-layouts. */
+.type-heading-1 + .hero__standfirst {
+  margin-top: var(--space-24);
+}
+
 /* ---- Signals (writing) list --------------------------------------------- */
 .signals-intro {
   max-width: var(--measure);
