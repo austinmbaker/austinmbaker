@@ -70,6 +70,32 @@
   margin-top: var(--space-24);
 }
 
+/* ---- Media -----------------------------------------------------------------
+   Placeholders use /assets/img/placeholder.svg and carry data-placeholder;
+   swap the src for the real image. Ratios come from the Figma frames. */
+.media {
+  margin: 0;
+}
+
+.media__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: var(--color-paper-raised);
+  border-radius: var(--radius);
+}
+
+.media--4x3 .media__img { aspect-ratio: 4 / 3; }
+.media--5x4 .media__img { aspect-ratio: 5 / 4; }
+.media--3x4 .media__img { aspect-ratio: 3 / 4; }
+.media--2x1 .media__img { aspect-ratio: 2 / 1; }
+
+.media__caption {
+  margin-top: var(--space-12);
+}
+
 /* ---- Signals (writing) list --------------------------------------------- */
 .signals-intro {
   max-width: var(--measure);
@@ -166,9 +192,13 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+.case-row__media {
+  max-width: 24rem;
+}
+
 @media (min-width: 60rem) {
   .case-row {
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(0, 18rem) minmax(0, 2fr) minmax(0, 3fr);
     gap: var(--space-64);
   }
 }
@@ -233,6 +263,40 @@
   margin-top: var(--space-40);
   padding-top: var(--space-40);
   border-top: 1px solid var(--color-border);
+}
+
+/* Concept image with the Role/Scope/Result panel beside it (Figma "At a glance"). */
+.case-hero__media {
+  display: grid;
+  gap: var(--space-40);
+  margin-top: var(--space-40);
+}
+
+.case-hero__media .case-hero__meta {
+  margin-top: 0;
+}
+
+@media (min-width: 60rem) {
+  .case-hero__media {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .case-hero__media .case-hero__meta {
+    flex-direction: column;
+  }
+}
+
+/* Home About teaser image: 480px wide in Figma, right-aligned beside the copy. */
+.about-teaser__media {
+  width: 100%;
+  max-width: 30rem;
+}
+
+@media (min-width: 48rem) {
+  .about-teaser__media {
+    justify-self: end;
+  }
 }
 
 .case-hero__meta dt {
@@ -312,6 +376,28 @@
 .case-nav__link--next {
   text-align: right;
   margin-left: auto;
+}
+
+.case-nav__media {
+  margin-bottom: var(--space-16);
+}
+
+/* ---- About intro: copy beside the portrait ------------------------------- */
+.about-intro {
+  display: grid;
+  gap: var(--space-40);
+}
+
+.about-intro__portrait {
+  max-width: 18.75rem;
+}
+
+@media (min-width: 60rem) {
+  .about-intro {
+    grid-template-columns: minmax(0, 1fr) 18.75rem;
+    gap: var(--space-64);
+    align-items: start;
+  }
 }
 
 /* ---- About ------------------------------------------------------------ */
