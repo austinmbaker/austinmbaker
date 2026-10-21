@@ -15,7 +15,9 @@
   --color-ink-soft: #55514d;      /* body copy (was #55514d / #6e6a66) */
   --color-muted: #6e6a66;         /* meta, captions, inactive nav (was 5 grays) */
   --color-border: #e8e5e1;        /* hairlines, dividers, card borders */
+  --color-border-hover: #afaaa4;  /* card border on hover */
   --color-accent: #e05a33;        /* fills, rules, markers, large accent text */
+  --color-accent-hover: #c44822;  /* hover / pressed for accent fills, text links, ghost buttons */
   --color-accent-tint: #fdf1ec;   /* tag and highlight backgrounds */
   --color-accent-text: #b8441f;   /* accent text under 24px — #e05a33 fails AA at small sizes */
   --color-on-accent: #ffffff;

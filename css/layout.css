@@ -84,7 +84,6 @@
 
 .site-nav__list a[aria-current="page"] {
   color: var(--color-ink);
-  font-weight: var(--weight-semibold);
 }
 
 /* Active indicator: 20×2 accent bar centered under the link (Figma 228:2702). */
@@ -134,11 +133,6 @@
   border-top: var(--rule);
 }
 
-.site-footer__signature {
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-caps);
-}
-
 .site-footer__links {
   display: flex;
   flex-wrap: wrap;
@@ -153,10 +147,6 @@
 .site-footer__links a:focus-visible,
 .site-footer__links a[aria-current="page"] {
   color: var(--color-ink);
-}
-
-.site-footer__links a[aria-current="page"] {
-  font-weight: var(--weight-semibold);
 }
 
 /* ---- Grid helpers ------------------------------------------------------- */
