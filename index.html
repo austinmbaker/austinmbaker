@@ -50,31 +50,24 @@
           </p>
         </div>
 
-        <ul class="signal-list">
-          <li class="signal-item">
-            <span class="signal-item__date">[Mon Year]</span>
+        <ul class="signal-list" data-signals-feed data-limit="3">
+          <li class="signal-item" data-signals-fallback>
+            <span class="signal-item__date">Orbital Dawn</span>
             <div>
-              <h3 class="signal-item__title"><a href="/signals/">[Placeholder headline — the strongest, most recent piece]</a></h3>
-              <p class="signal-item__dek">[Placeholder one-line dek summarizing the point of view.]</p>
+              <h3 class="signal-item__title"><a href="https://orbitaldawn.substack.com">Read Orbital Dawn on Substack</a></h3>
+              <p class="signal-item__dek">[Placeholder — one line on what Orbital Dawn covers.]</p>
             </div>
-            <a class="btn link-arrow" href="/signals/">Read</a>
           </li>
-          <li class="signal-item">
-            <span class="signal-item__date">[Mon Year]</span>
-            <div>
-              <h3 class="signal-item__title"><a href="/signals/">[Placeholder headline — second piece]</a></h3>
-              <p class="signal-item__dek">[Placeholder one-line dek.]</p>
-            </div>
-            <a class="btn link-arrow" href="/signals/">Read</a>
-          </li>
-          <li class="signal-item">
-            <span class="signal-item__date">[Mon Year]</span>
-            <div>
-              <h3 class="signal-item__title"><a href="/signals/">[Placeholder headline — third piece]</a></h3>
-              <p class="signal-item__dek">[Placeholder one-line dek.]</p>
-            </div>
-            <a class="btn link-arrow" href="/signals/">Read</a>
-          </li>
+          <template>
+            <li class="signal-item" data-animate>
+              <time class="signal-item__date" data-field="date"></time>
+              <div>
+                <h3 class="signal-item__title"><a data-field-href data-field="title"></a></h3>
+                <p class="signal-item__dek" data-field="excerpt"></p>
+              </div>
+              <a class="btn link-arrow" data-field-href aria-hidden="true" tabindex="-1">Read</a>
+            </li>
+          </template>
         </ul>
 
         <div style="margin-top: var(--space-40);">
@@ -145,5 +138,6 @@
 
   <script src="/js/include.js"></script>
   <script src="/js/main.js"></script>
+  <script src="/js/signals.js"></script>
 </body>
 </html>
