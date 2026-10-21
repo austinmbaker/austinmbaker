@@ -13,8 +13,10 @@
   if (lists.length === 0) return;
 
   const dateFormat = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
+  // Resolved from this script's own URL so it works under any base path.
+  const dataUrl = new URL("../data/signals.json", document.currentScript.src);
 
-  fetch("/data/signals.json")
+  fetch(dataUrl)
     .then((res) => (res.ok ? res.json() : null))
     .then((data) => {
       if (!data || !Array.isArray(data.items) || data.items.length === 0) return;

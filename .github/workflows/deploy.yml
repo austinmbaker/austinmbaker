@@ -35,7 +35,15 @@ jobs:
         run: node scripts/fetch-signals.mjs
         continue-on-error: true
 
-      - uses: actions/configure-pages@v5
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      # Project sites live under /<repo>/; a custom domain serves from the
+      # root, where base_path is empty and this step changes nothing.
+      - name: Apply base path
+        run: node scripts/apply-base-path.mjs
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
