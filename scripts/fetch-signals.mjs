@@ -12,7 +12,14 @@ const SOURCE = "https://orbitaldawn.substack.com";
 const MAX_ITEMS = 24;
 const EXCERPT_MAX = 240;
 
-const res = await fetch(FEED_URL, { headers: { "user-agent": "austinmbaker-site signals sync" } });
+// Substack's bot protection rejects bare custom user agents from datacenter
+// IPs (403 on GitHub Actions); identify as a feed reader, as Feedly etc. do.
+const res = await fetch(FEED_URL, {
+  headers: {
+    "user-agent": "Mozilla/5.0 (compatible; AustinBakerSite/1.0; +https://austinmbaker.github.io/austinmbaker/)",
+    accept: "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+  },
+});
 if (!res.ok) throw new Error(`Feed request failed: ${res.status} ${res.statusText}`);
 const xml = await res.text();
 
