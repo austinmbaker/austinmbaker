@@ -104,8 +104,10 @@
   --container-max: 90rem; /* 1440, gutters included → 1328 content */
   --gutter: clamp(1.25rem, 0.458rem + 3.38vw, 3.5rem); /* 20 → 56 */
   --section-space: clamp(4rem, 2.944rem + 4.507vw, 7rem); /* 64 → 112 */
-  --measure: 42.5rem; /* 680 — body copy line length */
-  --measure-wide: 50rem; /* 800 — ledes, positioning statement */
+  /* Text block width: ~60% of the content area, as in the Figma 1440 frames
+     (800px there). Scales with the viewport; vw rather than % so blocks
+     nested in grid columns don't shrink twice. */
+  --measure: clamp(32rem, 55vw, 50rem);
   --nav-height: 5.5rem; /* 88 */
 
   /* ---- Shape ------------------------------------------------------------ */
