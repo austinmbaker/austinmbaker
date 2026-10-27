@@ -198,8 +198,12 @@
 
 @media (min-width: 60rem) {
   .case-row {
-    grid-template-columns: minmax(0, 18rem) minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1.75fr);
     gap: var(--space-64);
+  }
+
+  .case-row__media {
+    max-width: none;
   }
 }
 
@@ -238,9 +242,12 @@
   color: var(--color-muted);
 }
 
+.case-row__meta > div {
+  flex: 1 1 13rem;
+}
+
 .case-row__meta dd {
   margin-top: var(--space-4);
-  max-width: 20rem;
 }
 
 .other-work-grid {
@@ -287,14 +294,14 @@
   }
 }
 
-/* Home About teaser image: 480px wide in Figma, right-aligned beside the copy. */
+/* Home About teaser image: 480px of a 644px column in Figma, right-aligned. */
 .about-teaser__media {
   width: 100%;
-  max-width: 30rem;
 }
 
 @media (min-width: 48rem) {
   .about-teaser__media {
+    max-width: 75%;
     justify-self: end;
   }
 }
@@ -370,7 +377,7 @@
 
 .case-nav__link {
   text-decoration: none;
-  max-width: 20rem;
+  max-width: max(16rem, 25%);
 }
 
 .case-nav__link--next {
@@ -394,9 +401,13 @@
 
 @media (min-width: 60rem) {
   .about-intro {
-    grid-template-columns: minmax(0, 1fr) 18.75rem;
+    grid-template-columns: minmax(0, 1fr) clamp(16rem, 28%, 26rem);
     gap: var(--space-64);
     align-items: start;
+  }
+
+  .about-intro__portrait {
+    max-width: none;
   }
 }
 

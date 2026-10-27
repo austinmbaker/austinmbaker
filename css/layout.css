@@ -10,10 +10,6 @@
   max-width: var(--measure);
 }
 
-.measure-wide {
-  max-width: var(--measure-wide);
-}
-
 /* ---- Section rhythm ------------------------------------------------------
    data-section on every top-level <section> keeps vertical spacing on one
    token. Dividers sit inside the gutters, as in Figma. */
