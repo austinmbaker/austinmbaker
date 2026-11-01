@@ -41,10 +41,124 @@
   transform: translateX(3px);
 }
 
+/* Figma "Button" (Primary / Ghost) and "Text Link". */
+.btn-primary,
+.btn-ghost,
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  text-decoration: none;
+  transition: background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
+}
+
+.btn-primary {
+  gap: var(--space-8);
+  padding: var(--space-12) var(--space-24);
+  border-radius: var(--radius);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--color-accent-hover);
+}
+
+.btn-ghost {
+  gap: var(--space-6);
+  padding-block: var(--space-12);
+  color: var(--color-accent-text);
+}
+
+.text-link {
+  gap: var(--space-4);
+  color: var(--color-accent-text);
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible,
+.text-link:hover,
+.text-link:focus-visible {
+  color: var(--color-accent-hover);
+}
+
+/* Figma "Hash Marks" + eyebrow label. */
+.section-marker {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.hash-marks {
+  flex: none;
+  color: var(--color-accent);
+}
+
+/* Figma "Section Heading": index — rule — label. */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.section-heading__line {
+  flex: 1 1 auto;
+  border-top: var(--rule);
+}
+
+/* Section headline + intro, optionally with a caption aside (Signals). */
+.section-intro__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  max-width: var(--measure);
+}
+
+.section-intro--aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.section-intro--aside .section-intro__main {
+  gap: var(--space-16);
+  max-width: clamp(28rem, 41.7vw, 37.5rem);
+}
+
+@media (min-width: 60rem) {
+  .section-intro--aside {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: var(--space-80);
+  }
+
+  .section-intro--aside > .type-caption {
+    flex: 1 1 0;
+  }
+}
+
 /* ---- Hero (Home) -------------------------------------------------------- */
 .hero {
-  display: grid;
-  gap: var(--space-40);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+}
+
+.hero .hero__standfirst {
+  margin-top: var(--space-12);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-24);
+  margin-top: var(--space-4);
 }
 
 .hero__headline {
@@ -154,26 +268,196 @@
   gap: var(--space-12);
 }
 
-/* ---- Home: Work block (not a grid) --------------------------------- */
+/* ---- Cards ------------------------------------------------------------------
+   One link per card (the title); its ::after stretches over the whole card. */
+.card-grid {
+  display: grid;
+  gap: var(--space-24);
+}
+
+@media (min-width: 48rem) {
+  .card-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 60rem) {
+  .card-grid--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card__link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+.card__link:focus-visible {
+  outline: none;
+}
+
+.card__link:focus-visible::after {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Figma "Card / Editorial" (Signals topic previews). */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-24);
+  padding: var(--space-24);
+  background: var(--color-surface);
+  border: var(--rule);
+  border-radius: var(--radius);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+@media (min-width: 48rem) {
+  .card {
+    padding: var(--space-32);
+  }
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+}
+
+.tag {
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius);
+  background: var(--color-accent-tint);
+}
+
+.card__action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-6);
+  font-size: var(--text-label);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+
+/* Figma "Decision case study" (Home Work cards). */
+.decision-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--color-surface);
+  border: var(--rule);
+  border-radius: var(--radius);
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.decision-card__media {
+  display: block;
+  width: 100%;
+  height: clamp(8rem, 12.5vw, 11.25rem); /* 128 → 180 */
+  object-fit: cover;
+  background: var(--color-paper-raised);
+}
+
+.decision-card__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-40);
+  padding: var(--space-20);
+}
+
+.decision-card__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.decision-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding-top: var(--space-12);
+  border-top: 2px solid var(--color-accent);
+}
+
+.decision-card__footer .type-meta {
+  color: var(--color-ink);
+}
+
+.card:hover,
+.card:focus-within,
+.decision-card:hover,
+.decision-card:focus-within {
+  border-color: var(--color-border-hover);
+}
+
+/* Figma arrow-right icons (assets/icons): keep native size, nudge on hover. */
+.icon {
+  display: block;
+  flex: none;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+a:hover > .icon,
+a:focus-visible > .icon,
+.card:hover .card__action .icon {
+  transform: translateX(3px);
+}
+
+/* Figma "Organization strip": boxed row of logo slots divided by rules. */
 .org-strip {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-32) var(--space-24);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--color-border);
+  border: var(--rule);
+}
+
+.org-strip > li {
+  display: flex;
   align-items: center;
-  justify-items: center;
-  padding-block: var(--space-40);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  justify-content: center;
+  min-height: 5rem;
+  padding: var(--space-12) var(--space-16);
+  background: var(--color-paper);
+}
+
+.org-strip > li:last-child {
+  grid-column: 1 / -1;
 }
 
 @media (min-width: 48rem) {
   .org-strip {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: var(--space-40);
+  }
+
+  .org-strip > li:last-child {
+    grid-column: auto;
   }
 }
 
-/* Logos scale with their column; contain keeps real logos undistorted. */
+/* Logos scale with their slot; contain keeps real logos undistorted. */
 .org-strip__logo {
   display: block;
   width: 100%;
@@ -184,12 +468,39 @@
   border-radius: var(--radius);
 }
 
-.work-teaser__frame {
-  margin-top: var(--space-40);
-  font-size: var(--text-lede);
-  line-height: var(--leading-lede);
-  max-width: var(--measure);
-  color: var(--color-ink-soft);
+/* About & approach: copy beside an image (Figma 720 : 480). */
+.split {
+  display: grid;
+  gap: var(--space-40);
+  align-items: center;
+}
+
+@media (min-width: 60rem) {
+  .split {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--space-80);
+  }
+}
+
+/* Connect invitation band: copy beside the primary action. */
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-32);
+}
+
+@media (min-width: 60rem) {
+  .cta {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-80);
+  }
+
+  .cta__copy {
+    max-width: 65%;
+  }
 }
 
 /* ---- Work index: case study rows (decision-first, not visual) ------- */
@@ -303,18 +614,6 @@
 
   .case-hero__media .case-hero__meta {
     flex-direction: column;
-  }
-}
-
-/* Home About teaser image: 480px of a 644px column in Figma, right-aligned. */
-.about-teaser__media {
-  width: 100%;
-}
-
-@media (min-width: 48rem) {
-  .about-teaser__media {
-    max-width: 75%;
-    justify-self: end;
   }
 }
 

@@ -86,6 +86,7 @@
   /* ---- Space ------------------------------------------------------------
      Named by pixel value so Figma numbers map 1:1 (gap 24 → --space-24). */
   --space-4: 0.25rem;
+  --space-6: 0.375rem; /* label-to-icon gap in Figma's Ghost button and Card action */
   --space-8: 0.5rem;
   --space-12: 0.75rem;
   --space-16: 1rem;
@@ -104,6 +105,10 @@
   --container-max: 90rem; /* 1440, gutters included → 1328 content */
   --gutter: clamp(1.25rem, 0.458rem + 3.38vw, 3.5rem); /* 20 → 56 */
   --section-space: clamp(4rem, 2.944rem + 4.507vw, 7rem); /* 64 → 112 */
+  --section-space-sm: clamp(3.5rem, 2.796rem + 3.005vw, 5.5rem); /* 56 → 88, banded sections */
+  --section-space-xs: clamp(2.5rem, 1.972rem + 2.254vw, 4rem); /* 40 → 64, call-to-action band */
+  --hero-space-top: clamp(4rem, 2.594rem + 6.01vw, 8rem); /* 64 → 128 */
+  --band-inset: clamp(1.25rem, 5.63vw - 0.07rem, 5rem); /* 20 → 80, banded section side padding */
   /* Text block width: ~60% of the content area, as in the Figma 1440 frames
      (800px there). Scales with the viewport; vw rather than % so blocks
      nested in grid columns don't shrink twice. */
