@@ -86,6 +86,7 @@
   /* ---- Space ------------------------------------------------------------
      Named by pixel value so Figma numbers map 1:1 (gap 24 → --space-24). */
   --space-4: 0.25rem;
+  --space-6: 0.375rem; /* label-to-icon gap in Figma's Ghost button and Card action */
   --space-8: 0.5rem;
   --space-12: 0.75rem;
   --space-16: 1rem;

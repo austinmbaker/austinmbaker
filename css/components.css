@@ -69,7 +69,7 @@
 }
 
 .btn-ghost {
-  gap: var(--space-8);
+  gap: var(--space-6);
   padding-block: var(--space-12);
   color: var(--color-accent-text);
 }
@@ -350,7 +350,7 @@
 .card__action {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
   font-size: var(--text-label);
   font-weight: var(--weight-semibold);
   line-height: var(--leading-tight);
@@ -412,8 +412,16 @@
   border-color: var(--color-border-hover);
 }
 
-.card:hover .link-arrow::after,
-.decision-card:hover .link-arrow::after {
+/* Figma arrow-right icons (assets/icons): keep native size, nudge on hover. */
+.icon {
+  display: block;
+  flex: none;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+a:hover > .icon,
+a:focus-visible > .icon,
+.card:hover .card__action .icon {
   transform: translateX(3px);
 }
 
