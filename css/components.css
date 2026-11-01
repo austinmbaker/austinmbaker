@@ -761,20 +761,49 @@ a:focus-visible > .icon,
 }
 
 /* ---- Connect ------------------------------------------------------- */
-.connect-links {
+/* Short intro beside a list (Figma Contact "Grid": 240px sidebar of a 951px row). */
+.sidebar-grid {
   display: grid;
-  gap: var(--space-16);
-  margin-top: var(--space-40);
+  gap: var(--space-24);
+  align-items: start;
 }
 
-.connect-links a {
-  text-decoration: none;
-  font-family: var(--font-display);
-  font-size: var(--text-heading-3);
-  padding-block: var(--space-12);
-  border-bottom: 1px solid var(--color-border);
+@media (min-width: 48rem) {
+  .sidebar-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: var(--space-64);
+  }
+}
+
+/* Figma Contact "Open to" item: informational, not a link. */
+.option-card {
   display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  padding: var(--space-20);
+  background: var(--color-surface);
+  border: var(--rule);
+  border-radius: var(--radius);
+}
+
+/* Figma Contact "Links" rows: name left, address right, divided by rules. */
+.link-row {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: var(--space-16);
+  padding-block: var(--space-20);
+  border-bottom: var(--rule);
+  text-decoration: none;
+}
+
+.link-list > li:last-child .link-row {
+  border-bottom: 0;
+}
+
+.link-row:hover .type-heading-4,
+.link-row:focus-visible .type-heading-4 {
+  color: var(--color-accent-hover);
 }
 
 /* ---- Animation hooks (no animation implemented yet) --------------------
